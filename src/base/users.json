@@ -1,0 +1,73 @@
+{
+    "count_translator" : 3,
+    "count_managers" : 0,
+    "users" : [
+        {
+            "login": "tery@mail.ru",
+            "password": "hash",
+            "offer" : 1,
+            "group" : "translator",
+            "translated" : [
+                "a_zory_zdes_tihie",
+                "kapitanskaya_dochka",
+                "avtostopom_po_galaktike"
+            ],
+            "language_proficiency" : [
+                "ru",
+                "esp",
+                "deu",
+                "eng"
+            ],
+            "during_translation" : [
+                "a_zory_zdes_tihie",
+                "kapitanskaya_dochka",
+                "avtostopom_po_galaktike"
+            ]
+        },
+        {
+            "login": "glogymankind@mail.ru",
+            "password": "hash1",
+            "offer" : 3,
+            "group" : "translator",
+            "translated" : [
+                "a_zory_zdes_tihie",
+                "kapitanskaya_dochka",
+                "avtostopom_po_galaktike"
+            ],
+            "language_proficiency" : [
+                "ru",
+                "esp",
+                "deu",
+                "eng"
+            ],
+            "during_translation" : [
+                "a_zory_zdes_tihie",
+                "kapitanskaya_dochka",
+                "avtostopom_po_galaktike"
+            ]
+        },
+        {
+            "login": "trollface@mail.ru",
+            "password": "hash21",
+            "offer" : 2,
+            "group" : "translator",
+            "translated" : [
+                "a_zory_zdes_tihie",
+                "kapitanskaya_dochka",
+                "avtostopom_po_galaktike"
+            ],
+            "language_proficiency" : [
+                "ru",
+                "esp",
+                "deu",
+                "eng"
+            ],
+            "during_translation" : [
+                "a_zory_zdes_tihie",
+                "kapitanskaya_dochka",
+                "avtostopom_po_galaktike"
+            ]
+        }
+    ]
+}
+
