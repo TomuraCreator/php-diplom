@@ -1,53 +1,26 @@
 <?php 
 
-
+/**
+ * Класс JsonAction содержит методы для взаимодействия с базой данных
+ * @uses 
+ */
 class JsonAction 
 {
-    private $PATH =  'C:\wamp64\www\DIPLOM-PHP\src\base\\';
+    private static $PATH =  'C:\wamp64\www\DIPLOM-PHP\src\base\\';
 
-    /**
-     * Статический метод Хеширования пароля принимает аргументы 
-     * @param string $pass пароль
-     * @param int $argOfCrypt номер алгоритмов кодирования 1 - PASSWORD_DEFAULT (по умолчанию), 2 - PASSWORD_BCRYPT 
-     * @return string хэш пароля 
-     */
-    static function getHashPassword(string $pass, int $argOfCrypt = PASSWORD_DEFAULT) : string 
-    {
-        if(!empty($pass)) {
-            if($argOfCrypt === 1) {
-                $argOfCrypt = PASSWORD_DEFAULT;
-            } else if ($argOfCrypt === 1) {
-                $argOfCrypt = PASSWORD_BCRYPT;
-            }
-            return password_hash($pass, $argOfCrypt);
-        }
-    }
-
-    /**
-     * Сравнивает пароль пользователя с хэш паролем
-     * @param string $hash хэш пароль
-     * @param string $pass пароль пользователя 
-     * @return bool
-     */
-    static function comparisonPassword(string $hash, string $pass) : bool 
-    {
-        if(!empty($hash) && !empty($pass)) {
-            return password_verify($pass, $hash);
-        } else {
-            throw new Exception('Empty data');
-        }
-    }
-
+    
     /**
      * читает JSON файл по имени $file_name и возращает данные
      * @param string имя файла
      * @return string
      */
-    static function readJSON(string $file_name) : string
+    public static function readJSON(string $file_name)
     {
-        if($this->getFileNameDirectory($file_name)) {
-            $convert_json = file_get_contents($this->PATH);
-            return json_decode($convert_json);
+        $path_name = self::$PATH . $file_name . '.json';
+        if(self::getFileNameDirectory($file_name)) {
+            $convert_json = file_get_contents($path_name);
+            $decode = json_decode($convert_json, true);
+            return $decode;
         }   
     }
 
@@ -55,7 +28,7 @@ class JsonAction
      * Декодирует строку в JSON объект php
      * @param string строка 
      */
-    public function getJsonDecode(string $json_string ) : string
+    public static function getJsonDecode(string $json_string ) : string
     {
         if(!empty($json_string)) {
             return json_decode($json_string);
@@ -67,10 +40,11 @@ class JsonAction
      * @param string имя файла
      * @return bool
      */
-    private function getFileNameDirectory(string $file_name) : bool
+    private static function getFileNameDirectory(string $file_name) : bool
     {
         $file = $file_name . ".json";
-        $scan = scandir($this->PATH);
+        $scan = scandir(self::$PATH);
+        
         foreach($scan as $value) {
             if($file === $value) {
                 return true;
@@ -83,10 +57,10 @@ class JsonAction
      * @param string путь
      * @return bool
      */
-    public function setPathConstant(string $path) : bool
+    public static function setPathConstant(string $path) : bool
     {
         if(!empty($path)) {
-            $this->PATH = $path;
+            self::$PATH = $path;
             return true;
         } else {
             return false;
@@ -96,9 +70,22 @@ class JsonAction
      * Возвращает свойство PATH
      * @return string
      */
-    public function getPath() : string 
+    public static function getPath() : string 
     {
-        return $this->PATH;
+        return self::$PATH;
     }
 
+    /**
+     * 
+     */
+    public static function setJsonFile(array $data, string $file_name) : bool
+    {
+        $path_name = self::$PATH . $file_name . '.json';
+        if(!empty($data) && self::getFileNameDirectory($file_name)) {
+            $encode = json_encode($data, JSON_UNESCAPED_SLASHES);
+            file_put_contents($path_name, $encode);
+            return true;
+        }
+        return false;
+    }
 }

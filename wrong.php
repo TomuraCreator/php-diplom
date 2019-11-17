@@ -19,6 +19,7 @@ $action_adress = 'redirection.php';
             <input type="password" maxlength="20" name="password" placeholder="password" required>
             <input type="submit" value="Отправить" >
         </form>
+        <p>не верное имя пользователя или пароль</p>
     </div>
 </body>
 </html>

@@ -7,38 +7,42 @@ class Auth
 
     function __construct($user) {
         if(!empty($user)) {
-            $this->user_name = $user->login;
-            $this->user_password = $user->password;
-        }
-    }
-
-    private function findLogin() : bool
-    {
-        $users_list = $this->json->users;
-        foreach ($users_list as $user) {
-            if($user->login === $this->user_name) {
-                $this->user_commit = $user;
-                return true;
-            } else {
-                return false;
-            }
+            $this->user_name = $user['login'];
+            $this->user_password = $user['password'];
         }
     }
 
     /**
-     * Проверяет соответствие 
+     * ищет в базе логин из формы пользователя
+     * @return bool
+     */
+    public function findLogin() : bool
+    {
+        $users_list = JsonAction::readJSON('users');
+        foreach ($users_list['users'] as $user) {
+            if($user['login'] === $this->user_name) {
+                $this->user_commit = $user;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Проверяет соответствие хэш в базе с паролем из формы
+     * @return bool
      */
     private function checkPass() : bool 
     {
-        $hash = $this->json->password;
-        $user_pass = $this->user_name->password;
+        $hash = $this->user_commit['password'];
+        $user_pass = $this->user_password;
 
-        if(JsonAction::comparisonPassword($hash, $user_pass)) {
+        if(Password::comparisonPassword($hash, $user_pass)) {
             return true;
         }          
         return false;
-
     }
+
     /**
      * Проверяет данные пользователя (логин, пароль)
      * @return bool
