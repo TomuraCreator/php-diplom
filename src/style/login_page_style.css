@@ -216,3 +216,11 @@ a {
     display: none;
 }
 
+/* надпись если логин существует */
+
+.login_exist {
+    font-size: small;
+    color: rgba(230, 31, 31, 1);
+    margin: 10px 0 10px 0;
+
+}

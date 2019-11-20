@@ -1,5 +1,10 @@
 <?php 
 $action_adress = 'redirection.php';
+$is_user = false;
+
+if(!empty($_GET['is_user'])) {
+    $is_user = true;
+}
 
 ?>
 
@@ -116,7 +121,7 @@ $action_adress = 'redirection.php';
             <div class="wrapper_form header_form deactive">
                 <h3>Войти в личный кабинет</h3>
                 <form action="<?php echo $action_adress . "?name=login"?>" method="post" class="footer_form ">
-                    <input type="mail" name="login" maxlength="20" placeholder="email" required>
+                    <input type="text" name="login" maxlength="20" placeholder="login" required>
                     <input type="password" maxlength="20" name="password" placeholder="password" required>
                     <input type="submit" value="Отправить" >
                 </form>
@@ -124,7 +129,8 @@ $action_adress = 'redirection.php';
             <div class="wrapper_form header_form">
                 <h3>Зарегестрироваться</h3>
                 <form action="<?php echo $action_adress . "?name=register"?>" method="post" class="footer_form ">
-                    <input type="mail" name="login" maxlength="20" placeholder="email" required>
+                    <input type="text" name="login" maxlength="20" placeholder="login" required 
+                    <?php if($is_user) echo 'autofocus'?>>
                     <input type="password" maxlength="20" name="password" placeholder="password" required>
                     <div>
                         <input type="radio" name="radiobutton" value="customer" id="customer" required>
@@ -133,6 +139,11 @@ $action_adress = 'redirection.php';
                         <label for="translator">Переводчик</label>
                     </div>
                     <input type="submit" value="Отправить" >
+                    <?php if($is_user): ?>
+                        <span class="login_exist">пользователь с таким логином уже существует</span>
+                    <?php endif;?>                         
+                                    
+                   
                 </form>
             </div>
         </div>

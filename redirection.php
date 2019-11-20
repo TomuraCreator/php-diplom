@@ -2,23 +2,21 @@
 include "autoload.php";
 
 $post = $_POST;
+$get = $_GET;
 $auth = new Auth($post);
 
-
-// if($_GET['name'] === 'login') {
-//     if($auth->isLogin()) {
-//         var_dump("Пользователь верный");
-//     } else {
-//         // header("Location: wrong.php");
-//     }
-// } elseif($_GET['name'] === 'register') {
-//     $user = new User($post);
-//     if($auth->findLogin()) {
-//         echo 'имя пользователя существует в нашей базе, используйте другое имя';
-//     } else {
-//         $user->saveUser();
-//     }
-// }   
-
-var_dump(Password::getHashPassword('grtmfgewerGSDmcxhj1234', 2));
-var_dump(Password::getHashPassword('1234', 2));
+if($_GET['name'] === 'login') {
+    if($auth->isLogin()) {
+        var_dump("Пользователь верный"); // здесь будет перенаправление на страницу ЛК(нужно будет учитывать кто заходит переводчик или заказчик)
+    } else {
+        header("Location: wrong.php");
+    }
+} elseif($_GET['name'] === 'register') {
+    $user = new User($post);
+    if($auth->findLogin()) {
+        header("Location: index.php?is_user=true");
+    } else {
+        $user->saveUser();
+        //здесь будет перенаправление на страницу ЛК(нужно будет учитывать кто заходит переводчик или заказчик)
+    }
+}   

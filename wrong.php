@@ -15,7 +15,7 @@ $action_adress = 'redirection.php';
 <body>
     <div class="wrapper_form header_form">
         <form action="<?php echo $action_adress . "?name=login"?>" method="post" class="footer_form ">
-            <input type="mail" name="login" maxlength="20" placeholder="email" required>
+            <input type="text" name="login" maxlength="20" placeholder="login" required>
             <input type="password" maxlength="20" name="password" placeholder="password" required>
             <input type="submit" value="Отправить" >
         </form>

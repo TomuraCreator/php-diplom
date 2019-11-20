@@ -14,12 +14,12 @@ class JsonAction
      * @param string имя файла
      * @return string
      */
-    public static function readJSON(string $file_name)
+    public static function readJSON(string $file_name = 'users')
     {
         $path_name = self::$PATH . $file_name . '.json';
         if(self::getFileNameDirectory($file_name)) {
             $convert_json = file_get_contents($path_name);
-            $decode = json_decode($convert_json, true);
+            $decode = JsonAction::getJsonDecode($convert_json);
             return $decode;
         }   
     }
@@ -28,10 +28,10 @@ class JsonAction
      * Декодирует строку в JSON объект php
      * @param string строка 
      */
-    public static function getJsonDecode(string $json_string ) : string
+    public static function getJsonDecode(string $json_string) : array
     {
         if(!empty($json_string)) {
-            return json_decode($json_string);
+            return json_decode($json_string, true);
         }
     }
 
@@ -50,6 +50,7 @@ class JsonAction
                 return true;
             }
         }
+        return true;
     }
 
     /**
@@ -76,7 +77,7 @@ class JsonAction
     }
 
     /**
-     * 
+     * Записывает данные в JSON 
      */
     public static function setJsonFile(array $data, string $file_name) : bool
     {

@@ -19,12 +19,12 @@ class Auth
     public function findLogin() : bool
     {
         $users_list = JsonAction::readJSON('users');
-        foreach ($users_list['users'] as $user) {
-            if($user['login'] === $this->user_name) {
-                $this->user_commit = $user;
-                return true;
-            }
+        $user_login = $this->user_name;
+        if(array_key_exists($user_login, $users_list['users'])) {
+            $this->user_commit = $users_list['users'][$user_login];
+            return true;
         }
+        
         return false;
     }
 
