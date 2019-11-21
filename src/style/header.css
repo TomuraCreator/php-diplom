@@ -11,6 +11,7 @@ a {
 .sidebar {
     width: 300px;
     height: 100vh;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -20,6 +21,7 @@ a {
     url("../image/screensaver_lk.jpg") center no-repeat;
     background-size: cover;
 
+    box-shadow: 2px 0px 2px #535353;
 }
 /*изображение юзера */
 
@@ -65,7 +67,9 @@ a {
 /*заголовок*/
 .header {
     width: 100%;
-    position: absolute; 
+    position: fixed;
+    z-index: 10;
+    
 }
 .wrapper_header {
     display: flex;
@@ -78,11 +82,21 @@ a {
     margin: 10px;
     cursor: pointer;
 }
-.button_hide_out > img, .logout-button > img {
+.button_hide_out > div, .logout-button > img {
     width: 20px;
+    height: 20px;
 
 }
 .logout-button {
     margin: 10px;
+}
+/*прячем панель навигации*/
 
+.slide_left {
+    left: -100%;
+}
+.button_hide_out > div {
+    background-image: url('../image/267-plus.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
 }

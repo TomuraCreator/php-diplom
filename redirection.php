@@ -9,7 +9,7 @@ if($_GET['name'] === 'login') {
     if($auth->isLogin()) {
         var_dump("Пользователь верный"); // здесь будет перенаправление на страницу ЛК(нужно будет учитывать кто заходит переводчик или заказчик)
     } else {
-        header("Location: wrong.php");
+        header("Location: login.php");
     }
 } elseif($_GET['name'] === 'register') {
     $user = new User($post);

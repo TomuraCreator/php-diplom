@@ -16,8 +16,11 @@ $image = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="src/image/007-pencil2.png" type="image/x-icon">
-    <link rel="stylesheet" href="src/style/header.css">
     <link rel="stylesheet" href="src/style/normalize.css">
+    <link rel="stylesheet" href="src/style/header.css">
+    <link rel="stylesheet" href="src/style/body.css">
+    <link rel="stylesheet" href="src/style/order_form.css">
+    
 
 </head>
 <body>
@@ -25,10 +28,10 @@ $image = null;
     <header class="header header-inner">
         <div class="wrapper_header">
             <div class="button_hide_out">
-                <img src="src/image/267-plus.png" alt="">
+                <div></div>
             </div>
             
-            <a class="logout-button" href="logout.php">
+            <a class="logout-button" href="login.php?name=false">
                 <img src="src/image/276-enter.png" alt="">
             </a>
         </div>
@@ -65,9 +68,6 @@ $image = null;
             </ul>
         </div>
     </div>
-    <section class="main_content">
-
-
-    </section>
+    <script src="src/script/header.js"></script>
 </body>
 </html>

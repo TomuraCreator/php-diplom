@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.article {
+    margin-top: 44px;
+    width: 50%;
+    box-shadow: 4px 4px 6px #5f5d5d;
+    transition: 0.3s;
+    background: linear-gradient(rgba(248, 248, 248, 0.9), 
+    rgba(248, 248, 248, 0.9)), 
+    url("../image/background-content.png") center no-repeat;
+    background-size: cover;
+}
+.article:hover {
+    box-shadow: 0px 0px 0px #5f5d5d;
+}
+/*позиционирование внутри карточки*/
+.wrapper_order_text {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+/*блок с кнопкам, датой и языками*/
+.wrapper_meta_date {
+    width: 55px;
+
+}
+/*дата дедлайна*/
+
+.deadline_quest {
+    font-size: 12px; 
+}
+/*текст для перевода*/
+
+.text_overflow {
+    margin: 0;
+    height: 100px;
+}
+
+/*иконки карточки */
+.wrapper_rule_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.button_edit, .button_delete_quest {
+    cursor: pointer;
+    width: 20px;
+}
+.button_edit > img, .button_delete_quest > img {
+    width: 20px;
+    transition: 0.3s;
+}
+.button_edit > img:hover, .button_delete_quest > img:hover {
+    box-shadow: 0px 0px 5px rgb(138, 119, 119);
+}
+/*панель языков перевода */
+
+.lang {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}

@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+ /*обёртка формы*/
+ 
+ .wrapper_form_create {
+    margin-top: 45px;
+    width: 50%;
+
+ }
