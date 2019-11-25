@@ -1,5 +1,6 @@
 <?php 
 $action_adress = 'redirection.php';
+$register_adress = 'register_info.php';
 $is_user = false;
 
 if(!empty($_GET['is_user'])) {
@@ -128,7 +129,7 @@ if(!empty($_GET['is_user'])) {
             </div>
             <div class="wrapper_form header_form">
                 <h3>Зарегестрироваться</h3>
-                <form action="<?php echo $action_adress . "?name=register"?>" method="post" class="footer_form ">
+                <form action="<?php echo $register_adress?>" method="post" class="footer_form ">
                     <input type="text" name="login" maxlength="20" placeholder="login" required 
                     <?php if($is_user) echo 'autofocus'?>>
                     <input type="password" maxlength="20" name="password" placeholder="password" required>

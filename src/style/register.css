@@ -1,0 +1,94 @@
+/* Форма */
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(8, 8, 8, 0.644), 
+    rgba(8, 8, 8, 0.644)), 
+    url("../image/colorful-peacock-feathers-picjumbo-com.jpg") center no-repeat;
+    background-size: 100%;
+}
+.wrapper_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    max-width: 300px;
+    min-width: 300px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+.footer_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.footer_form > input {
+    display: block;
+    margin: 15px auto 0 auto;
+}
+.footer_form > #customer, .footer_form > input#translator {
+    display: inline-block;
+}
+.footer_form > div {
+    margin-top: 10px;
+}
+.wrapper_form > h3 {
+    width: contain;
+    margin: 0;
+}
+
+
+@media (min-width: 440px) {
+    body {
+        background: linear-gradient(rgba(8, 8, 8, 0.644), 
+        rgba(8, 8, 8, 0.644)), 
+        url("../image/colorful-peacock-feathers-picjumbo-com_mobile.jpg") center no-repeat;
+        background-size: 100%;
+    }
+}
+@media (min-width: 1105px) {
+    body {
+        background: linear-gradient(rgba(8, 8, 8, 0.644), 
+        rgba(8, 8, 8, 0.644)), 
+        url("../image/colorful-peacock-feathers-picjumbo-com_mobile.jpg") center no-repeat;
+        background-size: 125%;
+    }
+}
+
+@media (min-width: 1300px) {
+    body {
+
+        background-size: 140%;
+    }
+}
+
+/*fieldset*/
+
+fieldset {
+    display: flex;
+
+    margin-top: 10px;
+    border: none;
+    font-size: 10px;
+
+}
+/* fieldset > input {
+    margin-left: 20px;
+} */

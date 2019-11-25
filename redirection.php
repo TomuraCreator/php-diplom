@@ -7,7 +7,8 @@ $auth = new Auth($post);
 
 if($_GET['name'] === 'login') {
     if($auth->isLogin()) {
-        var_dump("Пользователь верный"); // здесь будет перенаправление на страницу ЛК(нужно будет учитывать кто заходит переводчик или заказчик)
+        var_dump("Пользователь верный"); 
+        header("Location: body.php");
     } else {
         header("Location: login.php");
     }
@@ -17,6 +18,6 @@ if($_GET['name'] === 'login') {
         header("Location: index.php?is_user=true");
     } else {
         $user->saveUser();
-        //здесь будет перенаправление на страницу ЛК(нужно будет учитывать кто заходит переводчик или заказчик)
+        header("Location: body.php");
     }
 }   

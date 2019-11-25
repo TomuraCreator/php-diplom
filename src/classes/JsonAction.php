@@ -11,7 +11,7 @@ class JsonAction
     
     /**
      * читает JSON файл по имени $file_name и возращает данные
-     * @param string имя файла
+     * @param string имя файла // 'users' по уполчанию
      * @return string
      */
     public static function readJSON(string $file_name = 'users')
@@ -78,12 +78,15 @@ class JsonAction
 
     /**
      * Записывает данные в JSON 
+     * @param array $data данные для записи
+     * @param string $file_name (users - по умолчанию)
+     * @return bool
      */
-    public static function setJsonFile(array $data, string $file_name) : bool
+    public static function setJsonFile( $data, string $file_name = 'users') : bool
     {
         $path_name = self::$PATH . $file_name . '.json';
         if(!empty($data) && self::getFileNameDirectory($file_name)) {
-            $encode = json_encode($data, JSON_UNESCAPED_SLASHES);
+            $encode = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
             file_put_contents($path_name, $encode);
             return true;
         }

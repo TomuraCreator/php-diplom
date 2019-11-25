@@ -1,8 +1,25 @@
 <?php
 include "header.php";
-$text_make = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore harum fuga incidunt molestias rerum laboriosam officia modi debitis non quaerat facere molestiae deleniti quam velit, quo sed, ut quia qui! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima qui totam nihil aliquid, quas dicta, praesentium nisi obcaecati numquam consequatur commodi veniam reiciendis molestias natus eius tenetur? Hic quasi quos rem voluptate at id placeat ducimus veniam, suscipit mollitia molestiae provident incidunt inventore cum ut nobis reprehenderit nam deserunt, et eveniet illo obcaecati! Sed expedita a dicta impedit laudantium sunt debitis provident totam ex maxime officiis, libero consequatur aperiam voluptate possimus ad explicabo corporis perferendis pariatur doloribus blanditiis. Deleniti tempora quod quis eos omnis id ullam eum corporis veritatis repellendus nostrum, necessitatibus, odit deserunt temporibus corrupti beatae maxime soluta iste.';
+include "autoload.php";
+
 $lang_array = ['it', 'eng', 'fr', 'deu', 'chi', 'jap'];
+$translators = JsonAction::readJSON();
+$array_option = [];
+
+foreach($translators['users'] as $person_code => $person_obj) {
+    $t = '';
+    if($person_obj['group'] === 'translator') {
+        $t .= "<option value=";
+        $t .= '' . $person_code . '';
+        $t .= ">" . $person_obj['name'] . ' ' . $person_obj['second_name']
+        . '(' . $person_obj['count_congestion'] . ')';
+        $t .= "</option>";
+        array_push($array_option, $t);
+    }
+    
+}
 ?>
+
 <section class="section">
 <!-- <?php for($i = 0; $i < 5; $i++): ?>
     
@@ -32,49 +49,65 @@ $lang_array = ['it', 'eng', 'fr', 'deu', 'chi', 'jap'];
     
 <?php endfor ?> -->
 <div class="wrapper_form_create">
-    <form action="" class="create_order_form">
+    <form action="translate_form.php" method="POST" class="create_order_form">
         <div class="wrapper_personality_or_client">
-            <div>
-                <p>исполнитель:</p>
-                <input type="text" name="executor">
+            <div class="text_window order_person">
+                <p>Исполнитель:</p>
+                <select name="selected_translator" class="selected_translator">
+                <?php foreach($array_option as $value) {
+                    print $value;
+                } ?> 
+                </select>
             </div>
-            <div>
-                <p>заказчик:</p>
-                <input type="text" name="order">
+            <div class="text_window translate_person">
+                <p>Заказчик:</p>
+                <input type="text" name="customer" required>
             </div>
         </div>
-        <div class="wrapper_radio_origin">
-            <input type="radio" name="origin_russian" id="rus">
-            <label for="rus">Русский</label>
-            <input type="radio" name="origin_english" id="eng">
-            <label for="rus">Английский</label>
-            <input type="radio" name="origin_deutch" id="deu">
-            <label for="rus">Немецкий</label>
-            <input type="radio" name="origin_france" id="fra">
-            <label for="rus">Французский</label>
-            <input type="radio" name="origin_italian" id="it">
-            <label for="rus">Итальянский</label>
-            <input type="radio" name="origin_espana" id="esp">
-            <label for="rus">Испанский</label>
+        <div class="wrapper_checkbox_origin">
+            <fieldset class="origin_text">
+                <legend> Язык оригинала: </legend>
+                <input type="radio" name="origin" value="rus" id="o_rus" >
+                <label for="o_rus">Русский</label>
+                <input type="radio" name="origin" value="eng" id="o_eng">
+                <label for="o_eng">Английский</label> 
+                <input type="radio" name="origin" value="deu" id="o_deu" checked>
+                <label for="o_deu">Немецкий</label>
+                <input type="radio" name="origin" value="fra" id="o_fra">
+                <label for="o_fra">Французский</label>
+                <input type="radio" name="origin" value="it" id="o_it">
+                <label for="o_it">Итальянский</label>
+                <input type="radio" name="origin" value="esp" id="o_esp">
+                <label for="o_esp">Испанский</label>
+            </fieldset>
         </div>
-        <div class="wrapper_radio_translate">
-            <input type="radio" name="translate_russian" id="rus">
-            <label for="rus">Русский</label>
-            <input type="radio" name="translate_english" id="eng">
-            <label for="rus">Английский</label>
-            <input type="radio" name="translate_deutch" id="deu">
-            <label for="rus">Немецкий</label>
-            <input type="radio" name="translate_france" id="fra">
-            <label for="rus">Французский</label>
-            <input type="radio" name="translate_italian" id="it">
-            <label for="rus">Итальянский</label>
-            <input type="radio" name="translate_espana" id="esp">
-            <label for="rus">Испанский</label>
+        <div class="wrapper_checkbox_translate">
+            <fieldset class="translate_text">
+                <legend>Язык перевода: </legend>
+                <input type="checkbox" name="translate[]" value="rus" id="rus" checked>
+                <label for="rus">Русский</label>
+                <input type="checkbox" name="translate[]" value="eng" id="eng" checked>
+                <label for="eng">Английский</label>
+                <input type="checkbox" name="translate[]" value="deu" id="deu">
+                <label for="deu">Немецкий</label>
+                <input type="checkbox" name="translate[]" value="fra" id="fra">
+                <label for="fra">Французский</label>
+                <input type="checkbox" name="translate[]" value="it" id="it">
+                <label for="it">Итальянский</label>
+                <input type="checkbox" name="translate[]" value="esp" id="esp">
+                <label for="esp">Испанский</label>
+            </fieldset>    
+            
         </div>
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <textarea name="text_to_translate" cols="30" rows="10" class="text_to_translate" required></textarea>
+        <div class="wrapper_submit">
+            <input type="submit" value="Опубликовать">  
+            <div class="wrapper_deadline">
+                <p>Завершить до: </p>
+                <input type="date" name="date_of_deadline">
+            </div>
+        </div>
+        
     </form>
 </div>
 </section>
