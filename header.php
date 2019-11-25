@@ -3,8 +3,6 @@ $name_string = 'Anonimous';
 $name_role = 'koordinator';
 $image = null;
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +18,6 @@ $image = null;
     <link rel="stylesheet" href="src/style/header.css">
     <link rel="stylesheet" href="src/style/body.css">
     <link rel="stylesheet" href="src/style/order_form.css">
-    
-
 </head>
 <body>
     
@@ -65,9 +61,12 @@ $image = null;
                 <li class="filter-item">
                     <a href="index.php?filter=done">Выполненные</a>
                 </li>
+                <li class="new_item filter-item ">
+                    <a href="">Новое задание</a>
+                </li>
             </ul>
         </div>
     </div>
-    <script src="src/script/header.js"></script>
+
 </body>
 </html>

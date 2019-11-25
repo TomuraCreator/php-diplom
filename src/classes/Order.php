@@ -31,7 +31,6 @@ class Order
             'customer' => $this->customer,
             'lang_origin_text' => $this->origin_lang,
             'lang_for_translate' => $this->translate_lang,
-            'origin_text' => $this->text_to_translate,
             'deadline' => $this->deadline
         ];
         $this->id_text = $id;
@@ -56,7 +55,6 @@ class Order
      */
     private function createTranslateTextCart() : array
     {
-
         $origin_text_array[$this->id_text] = [
             'status' => 'new',
             'text' => $this->text_to_translate
@@ -69,9 +67,12 @@ class Order
      */
     public function setTextComplete() : bool
     {
-        $cardOrder = $this->createNewOrder();
-        $origin_text = $this->createOriginTextCart();
-        $translate_text = $this->createTranslateTextCart();
+        $cardOrder = JsonAction::readJSON('card_order');
+        $origin_text = JsonAction::readJSON('original_text');
+        $translate_text = JsonAction::readJSON('translate_text');
+        $cardOrder += $this->createNewOrder();
+        $origin_text += $this->createOriginTextCart();
+        $translate_text += $this->createTranslateTextCart();
 
         if (
             JsonAction::setJsonFile($cardOrder, 'card_order') &&

@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 a {
-    color: rgba(0, 0, 0, 1);
     text-decoration: none;
+    color: #000000;
 }
 
                     /*меню слева*/
@@ -20,7 +20,6 @@ a {
     rgba(134, 134, 134, 0.8)), 
     url("../image/screensaver_lk.jpg") center no-repeat;
     background-size: cover;
-
     box-shadow: 2px 0px 2px #535353;
 }
 /*изображение юзера */
@@ -50,18 +49,18 @@ a {
     padding-left: 0;
     
 }
-.filter-items li {
+.filter-item {
     margin: 10px 0 10px 0;
     text-transform: uppercase;
     font-size: 15px;
+    padding: 2px;
 }
 
 /*ховер */
 
-.filter-items li:hover {
-    border: 1px solid #000000;
-    font-size: 13.5px;
-    font-weight: 600;
+.filter-item:hover {
+    box-shadow: 3px 3px 3px rgba(230, 215, 215, 0.8);
+    background-color: #f0f8ff;
 }
 
 /*заголовок*/
@@ -99,4 +98,9 @@ a {
     background-image: url('../image/267-plus.png');
     background-size: 20px;
     background-repeat: no-repeat;
+}
+
+/*кнопка новое задание */
+.new_item:hover {
+    background-color: aquamarine;
 }

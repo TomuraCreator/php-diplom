@@ -6,7 +6,7 @@
             "password": "$2y$10$dW4P3uyKwSttx/9q9tK9heX9r4ip.KIJygKupDGjax6jgGrThYdAi",
             "name": "Василий ",
             "second_name": "Крамер",
-            "count_congestion": 0,
+            "count_congestion": 1,
             "date_of_register": "2019-11-25 09:39:00",
             "completed_work": 0,
             "group": "translator",
@@ -15,7 +15,9 @@
                 "rus",
                 "eng"
             ],
-            "during_translation": []
+            "during_translation": [
+                "order_5ddbf3fa3534e4.24881197"
+            ]
         },
         "artemon": {
             "password": "$2y$10$KvaJwbOVicyAaoVYgjPV4.prQr5SIhkbmo0nphKwBWJNeU.aWTn4.",
@@ -57,7 +59,7 @@
             "password": "$2y$10$Po4ExUUKvYuyywl60BXxTOdTMYvRYVkmzFFr5UDph2N0l1sLepLkm",
             "name": "Петр",
             "second_name": "Великий",
-            "count_congestion": 0,
+            "count_congestion": 2,
             "date_of_register": "2019-11-25 09:46:01",
             "completed_work": 0,
             "group": "translator",
@@ -67,7 +69,10 @@
                 "eng",
                 "esp"
             ],
-            "during_translation": []
+            "during_translation": [
+                "order_5ddbef8248b497.64248430",
+                "order_5ddbf85c8cf3c0.13115943"
+            ]
         },
         "kortana": {
             "password": "$2y$10$7qqa1HIaq5r4uGGxfI3r8OPXGCRGnZ5JrHWccQRA7OPy5dMTr/QcK",

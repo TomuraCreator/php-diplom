@@ -2,10 +2,12 @@
 include "header.php";
 include "autoload.php";
 
-$lang_array = ['it', 'eng', 'fr', 'deu', 'chi', 'jap'];
 $translators = JsonAction::readJSON();
-$array_option = [];
+$text_json = JsonAction::readJSON('card_order');
+$only_text_json = JsonAction::readJSON('original_text');
 
+$array_option = [];
+$get_filter = (!empty($_GET['filter'])) ? $_GET['filter'] : 'new';
 foreach($translators['users'] as $person_code => $person_obj) {
     $t = '';
     if($person_obj['group'] === 'translator') {
@@ -21,12 +23,12 @@ foreach($translators['users'] as $person_code => $person_obj) {
 ?>
 
 <section class="section">
-<!-- <?php for($i = 0; $i < 5; $i++): ?>
-    
+<?php foreach($text_json as $header => $value): ?>
+    <?php if($value['status'] === $get_filter): ?>
         <article class="article"> 
             <div class="wrapper_order_text">
                 <p class="text_overflow">
-                    <?php echo mb_strimwidth($text_make, 0, 400, "...", mb_internal_encoding())?>
+                    <?php echo mb_strimwidth($only_text_json[$header]['text'], 0, 400, "...", mb_internal_encoding())?>
                 </p>
                 <div class="wrapper_meta_date">
                     <div class="wrapper_rule_button">
@@ -37,18 +39,18 @@ foreach($translators['users'] as $person_code => $person_obj) {
                             <img src="src/image/174-bin2.png" alt="удалить">
                         </div>
                     </div>
-                    <div class="deadline_quest">10/12/2019</div>
+                    <div class="deadline_quest"><?php echo $value['deadline'] ?></div>
                     <div class="lang">
-                        <?php foreach($lang_array as $value) {
-                            echo $value . ' ';
+                        <?php foreach($value['lang_for_translate'] as $prop) {
+                            echo $prop . ' ';
                         } ?>
                     </div>
                 </div>
             </div>
         </article>
-    
-<?php endfor ?> -->
-<div class="wrapper_form_create">
+    <?php endif?>
+<?php endforeach ?>
+<div class="wrapper_form_create deactivate">
     <form action="translate_form.php" method="POST" class="create_order_form">
         <div class="wrapper_personality_or_client">
             <div class="text_window order_person">
@@ -101,13 +103,17 @@ foreach($translators['users'] as $person_code => $person_obj) {
         </div>
         <textarea name="text_to_translate" cols="30" rows="10" class="text_to_translate" required></textarea>
         <div class="wrapper_submit">
-            <input type="submit" value="Опубликовать">  
+            <div class="wrapper_button_forms">
+                <input type="submit" value="Опубликовать">
+                <input type="button" value="Закрыть" class="close">
+            </div>
             <div class="wrapper_deadline">
                 <p>Завершить до: </p>
-                <input type="date" name="date_of_deadline">
+                <input type="date" name="date_of_deadline" required>
             </div>
         </div>
         
     </form>
 </div>
 </section>
+<script src="src/script/header.js"></script>
