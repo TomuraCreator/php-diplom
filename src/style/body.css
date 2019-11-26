@@ -43,6 +43,7 @@ section {
 .text_overflow {
     margin: 0;
     height: 100px;
+    width: 550px;
 }
 
 /*иконки карточки */

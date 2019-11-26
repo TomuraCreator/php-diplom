@@ -1,4 +1,5 @@
 <?php 
+$adres = 'body.php';
 $name_string = 'Anonimous';
 $name_role = 'koordinator';
 $image = null;
@@ -47,19 +48,19 @@ $image = null;
             <h3 class="filter-title">Задания</h3>
             <ul class="filter-items">
                 <li class="filter-item filter-item_active">  
-                    <a href="index.php">Все</a>
+                    <a href="<?php echo $adres ?>">Все</a>
                 </li>
                 <li class="filter-item">
-                    <a href="index.php?filter=new">Новые</a>
+                    <a href="<?php echo $adres . '?filter=new' ?>">Новые</a>
                 </li>
                 <li class="filter-item">
-                    <a href="index.php?filter=resolved">На проверке</a>
+                    <a href="<?php echo $adres . '?filter=resolved' ?>">На проверке</a>
                 </li>
                 <li class="filter-item">
-                    <a href="index.php?filter=rejected">Отклонённые</a>
+                    <a href="<?php echo $adres . '?filter=rejected' ?>">Отклонённые</a>
                 </li>
                 <li class="filter-item">
-                    <a href="index.php?filter=done">Выполненные</a>
+                    <a href="<?php echo $adres . '?filter=done' ?>">Выполненные</a>
                 </li>
                 <li class="new_item filter-item ">
                     <a href="">Новое задание</a>

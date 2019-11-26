@@ -14,13 +14,16 @@ class JsonAction
      * @param string имя файла // 'users' по уполчанию
      * @return string
      */
-    public static function readJSON(string $file_name = 'users')
+    public static function readJSON(string $file_name = 'users') 
     {
         $path_name = self::$PATH . $file_name . '.json';
         if(self::getFileNameDirectory($file_name)) {
-            $convert_json = file_get_contents($path_name);
-            $decode = JsonAction::getJsonDecode($convert_json);
-            return $decode;
+            if(file_get_contents($path_name)) {
+                $convert_json = file_get_contents($path_name);
+                $decode = JsonAction::getJsonDecode($convert_json);
+                return $decode;
+            }
+
         }   
     }
 

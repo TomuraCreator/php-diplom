@@ -5,9 +5,9 @@ include "autoload.php";
 $translators = JsonAction::readJSON();
 $text_json = JsonAction::readJSON('card_order');
 $only_text_json = JsonAction::readJSON('original_text');
-
+User::reloadStatTranslator();
 $array_option = [];
-$get_filter = (!empty($_GET['filter'])) ? $_GET['filter'] : 'new';
+$get_filter = (!empty($_GET['filter'])) ? $_GET['filter'] : 'all';
 foreach($translators['users'] as $person_code => $person_obj) {
     $t = '';
     if($person_obj['group'] === 'translator') {
@@ -28,7 +28,7 @@ foreach($translators['users'] as $person_code => $person_obj) {
         <article class="article"> 
             <div class="wrapper_order_text">
                 <p class="text_overflow">
-                    <?php echo mb_strimwidth($only_text_json[$header]['text'], 0, 400, "...", mb_internal_encoding())?>
+                    <?php echo mb_strimwidth($only_text_json[$header]['text'], 0, 300, "...", mb_internal_encoding())?>
                 </p>
                 <div class="wrapper_meta_date">
                     <div class="wrapper_rule_button">
@@ -48,7 +48,31 @@ foreach($translators['users'] as $person_code => $person_obj) {
                 </div>
             </div>
         </article>
-    <?php endif?>
+    <?php elseif($get_filter === 'all'):?>
+        <article class="article"> 
+            <div class="wrapper_order_text">
+                <p class="text_overflow">
+                    <?php echo mb_strimwidth($only_text_json[$header]['text'], 0, 300, "...", mb_internal_encoding())?>
+                </p>
+                <div class="wrapper_meta_date">
+                    <div class="wrapper_rule_button">
+                        <div class="button_edit">
+                            <img src="src/image/006-pencil.png" alt="редактировать">
+                        </div>
+                        <div class="button_delete_quest">
+                            <img src="src/image/174-bin2.png" alt="удалить">
+                        </div>
+                    </div>
+                    <div class="deadline_quest"><?php echo $value['deadline'] ?></div>
+                    <div class="lang">
+                        <?php foreach($value['lang_for_translate'] as $prop) {
+                            echo $prop . ' ';
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </article>
+    <?php endif ?>
 <?php endforeach ?>
 <div class="wrapper_form_create deactivate">
     <form action="translate_form.php" method="POST" class="create_order_form">

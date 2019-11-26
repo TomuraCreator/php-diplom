@@ -1,34 +1,46 @@
 {
-    "order_5ddbef8248b497.64248430": {
-        "status": "new",
-        "translator": "patronum",
+    "order_5ddd7ca762d4e8.04269684": {
+        "status": "rejected",
+        "translator": "oldemoros3d",
         "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
         "lang_for_translate": [
+            "fra",
             "it"
         ],
-        "deadline": "2019-12-21"
+        "deadline": "2019-11-21"
     },
-    "order_5ddbf3fa3534e4.24881197": {
+    "order_5ddd7caef2f049.78074748": {
         "status": "new",
         "translator": "oldemoros3d",
-        "customer": "wwew",
+        "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
         "lang_for_translate": [
-            "rus",
-            "eng"
+            "fra",
+            "it"
         ],
-        "deadline": "2019-12-11"
+        "deadline": "2019-11-21"
     },
-    "order_5ddbf85c8cf3c0.13115943": {
+    "order_5ddd7cb3ecb004.85893375": {
         "status": "new",
-        "translator": "patronum",
-        "customer": "Агротех",
+        "translator": "oldemoros3d",
+        "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
         "lang_for_translate": [
-            "rus",
-            "eng"
+            "fra",
+            "it"
         ],
-        "deadline": "2019-11-30"
+        "deadline": "2019-11-21"
+    },
+    "order_5ddd7cbd2d0728.62357554": {
+        "status": "new",
+        "translator": "oldemoros3d",
+        "customer": "OOO Партнёр",
+        "lang_origin_text": "deu",
+        "lang_for_translate": [
+            "fra",
+            "it"
+        ],
+        "deadline": "2019-11-21"
     }
 }

@@ -1,5 +1,5 @@
-<?php 
-class User 
+<?php
+class User
 {
     private $user_login;
     private $user_password;
@@ -153,4 +153,19 @@ class User
             return $user_obj[$param];
         } 
     }
+
+    /**
+     * Обновить счётчики загружености переводчиков
+     * 
+     */
+    static function reloadStatTranslator() : void
+    {
+        $json = JsonAction::readJSON('users');
+        foreach($json['users'] as $user_log => $user) {
+            if($user['group'] == 'translator') {
+                self::getCompletedWork($user_log, 'during_translation');
+            }
+        }
+    }
+    
 }

@@ -56,9 +56,11 @@ class Order
     private function createTranslateTextCart() : array
     {
         $origin_text_array[$this->id_text] = [
-            'status' => 'new',
-            'text' => $this->text_to_translate
+            'status' => 'new'
         ];
+        foreach($this->translate_lang as $value) {
+            $origin_text_array[$this->id_text] += [$value=> '' ];
+        }
         return $origin_text_array;
     }
 
@@ -70,6 +72,7 @@ class Order
         $cardOrder = JsonAction::readJSON('card_order');
         $origin_text = JsonAction::readJSON('original_text');
         $translate_text = JsonAction::readJSON('translate_text');
+
         $cardOrder += $this->createNewOrder();
         $origin_text += $this->createOriginTextCart();
         $translate_text += $this->createTranslateTextCart();
