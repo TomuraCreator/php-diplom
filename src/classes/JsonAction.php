@@ -95,4 +95,20 @@ class JsonAction
         }
         return false;
     }
+
+    /**
+     * Возвращает объект 
+     * @param string $user логин переводчика
+     * @param string $param возвращаемое свойство
+     * @return mixed 
+    */
+    static function getPersonParam(string $user)
+    {
+        $json = JsonAction::readJSON('card_order');
+        return $json[$user];
+        // $user_obj = $json['users'][$user];
+        // if(array_key_exists($param, $user_obj)) {
+        //     return $user_obj[$param];
+        // } 
+    }
 }

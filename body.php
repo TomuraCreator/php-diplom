@@ -32,8 +32,8 @@ foreach($translators['users'] as $person_code => $person_obj) {
                 </p>
                 <div class="wrapper_meta_date">
                     <div class="wrapper_rule_button">
-                        <div class="button_edit">
-                            <img src="src/image/006-pencil.png" alt="редактировать">
+                        <div class="button_edit" data-id="<?php echo $header ?>">
+                            <img src="src/image/006-pencil.png" alt="редактировать" >
                         </div>
                         <div class="button_delete_quest">
                             <img src="src/image/174-bin2.png" alt="удалить">
@@ -56,7 +56,7 @@ foreach($translators['users'] as $person_code => $person_obj) {
                 </p>
                 <div class="wrapper_meta_date">
                     <div class="wrapper_rule_button">
-                        <div class="button_edit">
+                        <div class="button_edit " data-id="<?php echo $header ?>">
                             <img src="src/image/006-pencil.png" alt="редактировать">
                         </div>
                         <div class="button_delete_quest">
