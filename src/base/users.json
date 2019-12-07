@@ -6,7 +6,7 @@
             "password": "$2y$10$dW4P3uyKwSttx/9q9tK9heX9r4ip.KIJygKupDGjax6jgGrThYdAi",
             "name": "Василий ",
             "second_name": "Крамер",
-            "count_congestion": 4,
+            "count_congestion": 5,
             "date_of_register": "2019-11-25 09:39:00",
             "completed_work": 0,
             "group": "translator",
@@ -19,7 +19,8 @@
                 "order_5ddd7ca762d4e8.04269684",
                 "order_5ddd7caef2f049.78074748",
                 "order_5ddd7cb3ecb004.85893375",
-                "order_5ddd7cbd2d0728.62357554"
+                "order_5ddd7cbd2d0728.62357554",
+                "order_5ddee19aa234d4.89131815"
             ]
         },
         "artemon": {
@@ -30,9 +31,7 @@
             "date_of_register": "2019-11-25 09:41:44",
             "completed_work": 1,
             "group": "translator",
-            "translated": [
-                "123123231"
-            ],
+            "translated": [],
             "language_proficiency": [
                 "rus",
                 "eng"
@@ -78,6 +77,21 @@
             "group": "customer",
             "completed_work_text": [],
             "count_congestion": 0
+        },
+        "locatorSinc": {
+            "password": "$2y$10$142yZR.qAaZZTcfHxHuq3eBGRJrfXZTTVe7dz/4s7vlJfpMFfjrCe",
+            "name": "Василий ",
+            "second_name": "Виндоусова",
+            "count_congestion": 0,
+            "date_of_register": "2019-12-07 13:28:25",
+            "completed_work": 0,
+            "group": "translator",
+            "translated": [],
+            "language_proficiency": [
+                "rus",
+                "eng"
+            ],
+            "during_translation": []
         }
     }
 }

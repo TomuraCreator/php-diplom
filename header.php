@@ -1,7 +1,18 @@
 <?php 
+// $root = $_SERVER['DOCUMENT_ROOT'];
+if(empty($_SESSION['user'])) {
+    session_start();
+}
+
 $adres = 'body.php';
 $name_string = 'Anonimous';
 $name_role = 'koordinator';
+if(!empty($_SESSION['user'])) {
+    $session = $_SESSION['user'];
+    $name_string = $session['name'] . ' ' . $session['second_name'];
+    $name_role = ($session['group'] == 'translator') ? 'Переводчик' : 'Менеджер'; 
+};
+
 $image = null;
 
 ?>
@@ -18,6 +29,7 @@ $image = null;
     <link rel="stylesheet" href="src/style/normalize.css">
     <link rel="stylesheet" href="src/style/header.css">
     <link rel="stylesheet" href="src/style/body.css">
+    <link rel="stylesheet" href="src/style/edit_form.css">
     <link rel="stylesheet" href="src/style/order_form.css">
 </head>
 <body>
@@ -28,7 +40,7 @@ $image = null;
                 <div></div>
             </div>
             
-            <a class="logout-button" href="login.php?name=false">
+            <a class="logout-button" href="<?php echo 'redirection.php?name=loginout'?>">
                 <img src="src/image/276-enter.png" alt="">
             </a>
         </div>
@@ -47,6 +59,11 @@ $image = null;
         <div class="filter">
             <h3 class="filter-title">Задания</h3>
             <ul class="filter-items">
+                <?php if($session['group'] == 'customer'): ?>
+                    <li class="filter-item filter-item_active">  
+                        <a href="<?php echo $adres . 'expected'?>">назначенные</a>
+                    </li>
+                <?php endif;?>
                 <li class="filter-item filter-item_active">  
                     <a href="<?php echo $adres ?>">Все</a>
                 </li>
@@ -57,14 +74,13 @@ $image = null;
                     <a href="<?php echo $adres . '?filter=resolved' ?>">На проверке</a>
                 </li>
                 <li class="filter-item">
-                    <a href="<?php echo $adres . '?filter=rejected' ?>">Отклонённые</a>
-                </li>
-                <li class="filter-item">
                     <a href="<?php echo $adres . '?filter=done' ?>">Выполненные</a>
                 </li>
-                <li class="new_item filter-item ">
-                    <a href="">Новое задание</a>
-                </li>
+                <?php if($session['group'] == 'customer'): ?>
+                    <li class="new_item filter-item ">
+                        <a href="">Новое задание</a>
+                    </li>
+                <?php endif;?>
             </ul>
         </div>
     </div>

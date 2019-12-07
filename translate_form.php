@@ -3,7 +3,8 @@ include "autoload.php";
     
 $post = $_POST;
 
-$order = new Order($post);
+// $order = new Order($post);
 
-if($order->setTextComplete()) {
-}   
+// if($order->setTextComplete()) {
+// }   
+var_dump($post);

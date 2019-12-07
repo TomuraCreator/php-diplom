@@ -145,13 +145,17 @@ class User
      * @param string $param возвращаемое свойство
      * @return mixed 
     */
-    static function getPersonParam(string $user, string $param) : mixed
+    static function getPersonParam(string $user, string $param = null)
     {
         $json = JsonAction::readJSON('users');
         $user_obj = $json['users'][$user];
-        if(array_key_exists($param, $user_obj)) {
-            return $user_obj[$param];
-        } 
+        if($param) {
+            if(array_key_exists($param, $user_obj)) {
+                return $user_obj[$param];
+            } 
+        } else {
+           return $user_obj;
+        }
     }
 
     /**
@@ -167,5 +171,4 @@ class User
             }
         }
     }
-    
 }

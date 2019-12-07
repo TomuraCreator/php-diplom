@@ -42,5 +42,16 @@
             "it"
         ],
         "deadline": "2019-11-21"
+    },
+    "order_5ddee19aa234d4.89131815": {
+        "status": "new",
+        "translator": "oldemoros3d",
+        "customer": "OOO Партнёр",
+        "lang_origin_text": "deu",
+        "lang_for_translate": [
+            "fra",
+            "it"
+        ],
+        "deadline": "2019-11-21"
     }
 }

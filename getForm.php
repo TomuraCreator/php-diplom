@@ -4,6 +4,8 @@ include 'autoload.php';
 
 $get = $_GET;
 
-echo 1;
-exit(json_encode(JsonAction::getPersonParam($get['name'], JSON_UNESCAPED_UNICODE)));
-// echo json_encode(JsonAction::getPersonParam($get['name']));
+echo json_encode([
+    "card" => JsonAction::getPersonParam($get['name'], 'card_order'),
+    "text" => JsonAction::getPersonParam($get['name'], 'original_text')
+], JSON_UNESCAPED_UNICODE);
+exit();

@@ -102,9 +102,9 @@ class JsonAction
      * @param string $param возвращаемое свойство
      * @return mixed 
     */
-    static function getPersonParam(string $user)
+    static function getPersonParam(string $user, string $file)
     {
-        $json = JsonAction::readJSON('card_order');
+        $json = JsonAction::readJSON($file);
         return $json[$user];
         // $user_obj = $json['users'][$user];
         // if(array_key_exists($param, $user_obj)) {
