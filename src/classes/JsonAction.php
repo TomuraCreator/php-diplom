@@ -10,8 +10,8 @@ class JsonAction
 
     
     /**
-     * читает JSON файл по имени $file_name и возращает данные
-     * @param string имя файла // 'users' по уполчанию
+     * читает JSON файл $file_name и возращает данные
+     * @param string имя файла // 'users' по умолчанию
      * @return string
      */
     public static function readJSON(string $file_name = 'users') 

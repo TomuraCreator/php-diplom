@@ -20,6 +20,9 @@ section {
 .article:hover {
     box-shadow: 0px 0px 0px #5f5d5d;
 }
+section:last-of-type {
+    margin-bottom: 44px;
+}   
 /*позиционирование внутри карточки*/
 .wrapper_order_text {
     padding: 10px;
@@ -30,8 +33,7 @@ section {
 }
 /*блок с кнопкам, датой и языками*/
 .wrapper_meta_date {
-    width: 55px;
-
+    width: 60px;
 }
 /*дата дедлайна*/
 

@@ -59,11 +59,11 @@ $image = null;
         <div class="filter">
             <h3 class="filter-title">Задания</h3>
             <ul class="filter-items">
-                <?php if($session['group'] == 'customer'): ?>
+                <!-- <?php if($session['group'] == 'customer'): ?>
                     <li class="filter-item filter-item_active">  
-                        <a href="<?php echo $adres . 'expected'?>">назначенные</a>
+                        <a href="<?php echo $adres . '?filter=expected'?>">назначенные</a>
                     </li>
-                <?php endif;?>
+                <?php endif;?> -->
                 <li class="filter-item filter-item_active">  
                     <a href="<?php echo $adres ?>">Все</a>
                 </li>

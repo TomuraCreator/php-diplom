@@ -9,14 +9,20 @@ class Order
     private $deadline;
     private $id_text;
 
-    function __construct($post_obj)
+    function __construct($post_obj = null)
     {
-    $this->executor = $post_obj['selected_translator'];
-    $this->customer = $post_obj['customer'];
-    $this->origin_lang = $post_obj['origin'];
-    $this->translate_lang = $post_obj['translate'];
-    $this->text_to_translate = $post_obj['text_to_translate'];
-    $this->deadline = $post_obj['date_of_deadline'];
+        if($post_obj) {
+            $this->executor = $post_obj['selected_translator'];
+            $this->customer = $post_obj['customer'];
+            $this->origin_lang = $post_obj['origin'];
+            $this->translate_lang = $post_obj['translate'];
+            $this->text_to_translate = $post_obj['text_to_translate'];
+            $this->deadline = $post_obj['date_of_deadline'];
+
+            if(!$this->setTextComplete()) {
+                throw new Exception('Ошибка записи новой карточки на перевод');
+            } 
+        }
     }
 
     /**
@@ -67,7 +73,7 @@ class Order
     /**
      * Запускает создание и запись карочек в базу и добавляет переводчику 
      */
-    public function setTextComplete() : bool
+    private function setTextComplete() : bool
     {
         $cardOrder = JsonAction::readJSON('card_order');
         $origin_text = JsonAction::readJSON('original_text');

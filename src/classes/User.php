@@ -33,7 +33,7 @@ class User
             'second_name' => $this->user_surname,
             'date_of_register' => Generate::getDateFormat(),
             'group' => $this->user_profession,
-            'offer_text' => []
+            'completed_work_text' => []
         ];
         return $user_array;
     }

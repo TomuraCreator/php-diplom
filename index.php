@@ -6,7 +6,6 @@ $is_user = false;
 if(!empty($_GET['is_user'])) {
     $is_user = true;
 }
-
 ?>
 
 <!DOCTYPE html>
