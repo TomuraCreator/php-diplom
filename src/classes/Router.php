@@ -16,9 +16,6 @@ class Router
             $this->get = $GET;
         } if($POST) {
             $this->post = $POST;
-            
-
-
         }
         if($this->get['name'] === 'register') {
             $this->auth = new Auth($POST);
@@ -38,7 +35,7 @@ class Router
             User::reloadStatTranslator();
             header('Location: body.php');
         } elseif($this->get['name'] === 'edit_card') {
-            
+            $this->saveCardText();
         } elseif($this->get['name'] === 'delete_card') {
 
         }
@@ -104,11 +101,13 @@ class Router
     }
 
     /**
-     * Перенаправляет на страницу, где открывается форма для внесения перевода
+     * Перенаправляет на главную страницу, после сохранения перевода
      */
-
-
-    /**
-     * Перенаправляет на страницу, где открывается форма для внесения перевода
-     */
-}
+    private function saveCardText() : void
+    {
+        $modernize_text = new TextManipulate($this->post);
+        $modernize_text->saveText();
+        $modernize_text->setStatusOnCard('resolved');
+        header('Location: body.php');
+    }
+}   

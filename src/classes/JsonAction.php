@@ -28,7 +28,7 @@ class JsonAction
     }
 
     /**
-     * Декодирует строку в JSON объект php
+     * Декодирует строку из JSON в объект php
      * @param string строка 
      */
     public static function getJsonDecode(string $json_string) : array

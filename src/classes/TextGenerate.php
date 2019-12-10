@@ -149,6 +149,7 @@ HTML;
     public function getEditForm(string $card_id) 
     {
         if($card_id) {
+            $path = 'redirection.php?name=edit_card';
             $card_text = $this->text_json[$card_id];
             $only_text_json = $this->only_text_json[$card_id];
 
@@ -162,7 +163,7 @@ ED;
 
             return <<< DOCS
             <div class="wrapper_form_edit">
-                <form action="translate_form.php" method="POST" class="edit_form">
+                <form action="{$path}" method="POST" class="edit_form">
                     <div class="wrapper_personality_or_client">
                         <div class="text_window order_person">
                             <div class="lang_tab">
@@ -175,13 +176,14 @@ ED;
                             </div>
                         </div>
                         <div class="text_window translate_person">
-                            <p>Срок сдачи:{$card_text['deadline']}</p>
+                            <p>Срок сдачи: {$card_text['deadline']}</p>
                         </div>
                     </div>
                     <div class="original_text_show">
                         {$only_text_json['text']}
                     </div>
                     <input type="hidden" name="login" value="$this->user_login">
+                    <input type="hidden" name="card_id" value="$card_id">
                     $arrFieldToTranslated
                     <div class="wrapper_submit">
                         <div class="wrapper_button_forms">
@@ -198,40 +200,38 @@ DOCS;
     /**
      * Переводит сокращения языков в полный вид
      * @param $str принимает строку или индексный массив
- 
-     *  
      */
-    private function translateLangToStr($str = null)
-    {   
-        function transpiller( $string)
-        {
-            switch($string) {
-                case 'eng': 
-                    return 'английский';
-                    break;
-                case 'deu': 
-                    return 'немецкий';
-                    break;
-                case 'rus':
-                    return 'русский';
-                    break;
-                case 'fra':
-                    return 'французский';
-                    break;
-                case 'it':
-                    return 'итальянский';
-                    break;
-                case 'esp':
-                    return 'испанский';
-                    break;
-            }
-        };
-        if(is_string($str)) {
-            return transpiller($str);
-        } else {
-            $est = array_map('transpiller', $str);
-            $filter = join(', ', $est);
-            return substr($filter, 0, -2);
+    public function translateLangToStr($str = null)
+{
+    $transpiller = function( $string)
+    {
+        switch($string) {
+            case 'eng':
+                return 'английский';
+                break;
+            case 'deu':
+                return 'немецкий';
+                break;
+            case 'rus':
+                return 'русский';
+                break;
+            case 'fra':
+                return 'французский';
+                break;
+            case 'it':
+                return 'итальянский';
+                break;
+            case 'esp':
+                return 'испанский';
+                break;
         }
+    };
+    if(is_string($str)) {
+        return $transpiller($str);
+    } else {
+        $est = array_map($transpiller, $str);
+        $filter = join(', ', $est);
+        return $filter;
     }
+}
 }
