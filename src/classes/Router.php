@@ -17,16 +17,17 @@ class Router
         } if($POST) {
             $this->post = $POST;
         }
-        if($this->get['name'] === 'register') {
+        if($this->get['name'] === 'register') { //регистрация
             $this->auth = new Auth($POST);
             $this->user = new User($POST);
             $this->toRegister();
-        } elseif($this->get['name'] === 'login') {
+            User::reloadStateUsersCategory();
+        } elseif($this->get['name'] === 'login') { // логин
             $this->auth = new Auth($POST);
             $this->toAuthLogin();
-        } elseif($this->get['name'] === 'loginout') {
+        } elseif($this->get['name'] === 'loginout') { //разлогин
             $this->logOut();
-        } elseif($this->get['name'] === 'new_order') {
+        } elseif($this->get['name'] === 'new_order') { // создание новой карточки с текстом
             try {
                 $this->saveOrder();
             } catch (Exception $e) {
@@ -34,10 +35,11 @@ class Router
             }
             User::reloadStatTranslator();
             header('Location: body.php');
-        } elseif($this->get['name'] === 'edit_card') {
+        } elseif($this->get['name'] === 'edit_card') { // отправка переведённого текста переводчиком
             $this->saveCardText();
-        } elseif($this->get['name'] === 'delete_card') {
-
+        } elseif($this->get['name'] === 'delete_card') { //удаление карточки 
+            $this->removeCard();
+            
         }
     }
     private function isError() 
@@ -101,13 +103,25 @@ class Router
     }
 
     /**
-     * Перенаправляет на главную страницу, после сохранения перевода
+     * Сохраняет изменения внесённые переводчиком и перенаправляет на главную страницу 
+     * @return void
      */
     private function saveCardText() : void
     {
         $modernize_text = new TextManipulate($this->post);
         $modernize_text->saveText();
         $modernize_text->setStatusOnCard('resolved');
+        header('Location: body.php');
+    }
+
+    /**
+     * Производит удаление данных в карточках с текстом на перевод, удаляет идентификатор заказа на перевод у переводчика, перенаправляет на главную страницу  
+     * @return void
+     */
+    private function removeCard() : void
+    {
+        TextManipulate::deleteCardData($this->get['id']);
+        User::reloadStatTranslator();
         header('Location: body.php');
     }
 }   

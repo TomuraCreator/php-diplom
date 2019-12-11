@@ -64,13 +64,13 @@
         ],
         "deadline": "2019-12-20"
     },
-    "order_5def9e663e50e1.68355569": {
-        "status": "new",
+    "order_5df0f179248b15.67489347": {
+        "status": "resolved",
         "translator": "patronum",
-        "customer": "пикабу",
+        "customer": "OOO Партнёр",
         "lang_origin_text": "rus",
         "lang_for_translate": [
-            "eng"
+            "deu"
         ],
         "deadline": "2019-12-21"
     }

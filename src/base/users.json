@@ -6,7 +6,7 @@
             "password": "$2y$10$dW4P3uyKwSttx/9q9tK9heX9r4ip.KIJygKupDGjax6jgGrThYdAi",
             "name": "Василий ",
             "second_name": "Крамер",
-            "count_congestion": 5,
+            "count_congestion": 4,
             "date_of_register": "2019-11-25 09:39:00",
             "completed_work": 0,
             "group": "translator",
@@ -19,8 +19,7 @@
                 "order_5ddd7ca762d4e8.04269684",
                 "order_5ddd7caef2f049.78074748",
                 "order_5ddd7cb3ecb004.85893375",
-                "order_5ddd7cbd2d0728.62357554",
-                "order_5ddee19aa234d4.89131815"
+                "order_5ddd7cbd2d0728.62357554"
             ]
         },
         "artemon": {
@@ -29,7 +28,7 @@
             "second_name": "Васильевич",
             "count_congestion": 0,
             "date_of_register": "2019-11-25 09:41:44",
-            "completed_work": 1,
+            "completed_work": 0,
             "group": "translator",
             "translated": [],
             "language_proficiency": [
@@ -57,7 +56,7 @@
             "password": "$2y$10$Po4ExUUKvYuyywl60BXxTOdTMYvRYVkmzFFr5UDph2N0l1sLepLkm",
             "name": "Петр",
             "second_name": "Великий",
-            "count_congestion": 2,
+            "count_congestion": 1,
             "date_of_register": "2019-11-25 09:46:01",
             "completed_work": 0,
             "group": "translator",
@@ -68,8 +67,7 @@
                 "esp"
             ],
             "during_translation": [
-                "order_5deeb476937606.12759201",
-                "order_5def9e663e50e1.68355569"
+                "order_5df0f179248b15.67489347"
             ]
         },
         "kortana": {

@@ -87,3 +87,4 @@ if(!empty($_GET['name'])) {
 </section>
 <script src="src/script/header.js">
 </script>
+<?php User::deleteCardId('oldemoros3d' , "order_5ddee19aa234d4.89131815");?>

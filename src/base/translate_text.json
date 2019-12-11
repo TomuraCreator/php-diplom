@@ -28,8 +28,8 @@
         "status": "new",
         "eng": ""
     },
-    "order_5def9e663e50e1.68355569": {
-        "status": "new",
-        "eng": ""
+    "order_5df0f179248b15.67489347": {
+        "status": "resolved",
+        "deu": "\r\nRasshirennoy formoy shablonnykh literalov yavlyayutsya tegovyye shablony. Oni pozvolyayut razbirat' shablonnyye literaly s pomoshch'yu funktsii. Pervyy argument takoy funktsii soderzhit massiv strokovykh znacheniy, a ostal'nyye soderzhat vyrazheniya iz podstanovok. V itoge, funktsiya dolzhna vernut' sobrannuyu stroku (ili chto-libo sovsem inoye, kak budet pokazano daleye). Imya funktsii mozhet byt' lyubym.\r\nРазвернуть\r\n372/5000\r\nEine erweiterte Form von Vorlagenliteralen ist das Markieren von Vorlagen. Mit ihnen können Sie Vorlagenliterale mithilfe einer Funktion analysieren. Das erste Argument einer solchen Funktion enthält ein Array von Zeichenfolgenwerten, und der Rest enthält Ausdrücke aus Ersetzungen. Infolgedessen sollte die Funktion den zusammengestellten String zurückgeben (oder etwas völlig anderes, wie später gezeigt wird). Der Name der Funktion kann beliebig sein."
     }
 }

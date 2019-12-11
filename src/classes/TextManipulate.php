@@ -16,7 +16,9 @@ class TextManipulate
     {
         if($data) {
             $this->form_data = $data;
-            $this->translater_user = $data['login'];
+            if(!empty($data['login'])) {
+                $this->translater_user = $data['login'];
+            }
             $this->card_id = $data['card_id'];
             $this->text_json = JsonAction::readJSON('card_order');
             $this->only_text_json = JsonAction::readJSON('original_text');
@@ -60,5 +62,26 @@ class TextManipulate
         JsonAction::setJsonFile($this->translate_text, 'translate_text');
         JsonAction::setJsonFile($this->only_text_json, 'original_text');
         JsonAction::setJsonFile($this->text_json, 'card_order');
+    }
+
+    /**
+     * Удаляет карточки из базы 
+     */
+    static function deleteCardData(string $card_id = null) : void
+    {
+        $text_json = JsonAction::readJSON('card_order');
+        $only_text_json = JsonAction::readJSON('original_text');
+        $translate_text = JsonAction::readJSON('translate_text');
+        
+        if($card_id) {
+            $translator = $text_json[$card_id]['translator'];
+        }
+
+        unset($text_json[$card_id], $only_text_json[$card_id], $translate_text[$card_id]);
+        JsonAction::setJsonFile($text_json, 'card_order');
+        JsonAction::setJsonFile($only_text_json, 'original_text');
+        JsonAction::setJsonFile($translate_text , 'translate_text');
+
+        User::deleteCardId($translator, $card_id);
     }
 }

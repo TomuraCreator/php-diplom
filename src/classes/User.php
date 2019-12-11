@@ -171,4 +171,50 @@ class User
             }
         }
     }
+
+    /**
+     * Обновляет счётчики категорий пользователей
+     * @return void
+     */
+    static function reloadStateUsersCategory() : void
+    {
+        $json = JsonAction::readJSON('users');
+        $accumulate = [
+            'translator' => [],
+            'customer' => []
+        ];
+        foreach($json['users'] as $value) {
+            if($value['group'] == 'translator') {
+                $accumulate['translator'][] = '+';
+            } else {
+                $accumulate['customer'][] = '+';
+            }
+        }
+        $json['count_translator'] = count($accumulate['translator']);
+        $json['count_managers'] = count($accumulate['customer']);
+
+        JsonAction::setJsonFile($json);
+    }
+
+    /**
+     * Удаляет информацию о заказе из карточки переводчика 
+     */
+    static function deleteCardId(string $user_id, string $card_id) : void
+    {
+        $json = JsonAction::readJSON('users');
+        if($user_id && $card_id) {
+            $filters = function($e) use($card_id) 
+            {
+                if($e === $card_id) {
+                    return false;
+                }
+                return true;
+            };
+            $json['users'][$user_id]['during_translation'] = array_filter(
+                $json['users'][$user_id]['during_translation'],
+                $filters
+            );
+        }
+        JsonAction::setJsonFile($json);
+    }
 }
