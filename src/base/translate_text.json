@@ -1,6 +1,6 @@
 {
     "order_5ddd7ca762d4e8.04269684": {
-        "status": "resolved",
+        "status": "undone",
         "fra": "Camarades! le développement ultérieur de diverses formes d'activité nous permet d'évaluer la valeur correspondant aux conditions d'activation. Ainsi, la croissance quantitative constante et l'étendue de notre activité déterminent dans une large mesure la création des positions prises par les participants par rapport aux tâches définies. D'autre part, le début d'un travail quotidien sur la formation d'un poste assure un large cercle de participation (de spécialistes) à la formation de nouvelles propositions.\r\n",
         "it": "Compagni! Il successivo sviluppo di varie forme di attività ci consente di valutare il valore corrispondente alle condizioni di attivazione. Pertanto, la costante crescita quantitativa e la portata delle nostre attività per molti aspetti determinano la creazione di posizioni ricoperte dai partecipanti in relazione ai compiti stabiliti. D'altra parte, l'inizio del lavoro quotidiano sulla formazione della posizione offre un ampio circolo di partecipazione (specialisti) alla formazione di nuove proposte.\r\n"
     },
@@ -15,9 +15,9 @@
         "it": ""
     },
     "order_5ddd7cbd2d0728.62357554": {
-        "status": "new",
-        "fra": "",
-        "it": ""
+        "status": "resolved",
+        "fra": "\r\nCamarades! le développement ultérieur de diverses formes d'activité nous permet d'évaluer la valeur correspondant aux conditions d'activation. Ainsi, la croissance quantitative constante et l'étendue de notre activité déterminent dans une large mesure la création des positions prises par les participants par rapport aux tâches définies. D'autre part, le début du travail quotidien sur la formation d'une position assure un large cercle de participation (de spécialistes) à la formation de nouveaux développements",
+        "it": "Compagni! l'ulteriore sviluppo di varie forme di attività ci consente di valutare il valore corrispondente alle condizioni di attivazione. Pertanto, la costante crescita quantitativa e la portata della nostra attività determinano in larga misura la creazione delle posizioni assunte dai partecipanti in relazione ai compiti stabiliti. D'altro canto, l'inizio del lavoro quotidiano sulla formazione di una posizione assicura un ampio cerchio di partecipazione (specialistica) alla formazione di nuovi sviluppi"
     },
     "order_5ddee19aa234d4.89131815": {
         "status": "new",
@@ -29,7 +29,16 @@
         "eng": ""
     },
     "order_5df0f179248b15.67489347": {
-        "status": "resolved",
+        "status": "done",
         "deu": "\r\nRasshirennoy formoy shablonnykh literalov yavlyayutsya tegovyye shablony. Oni pozvolyayut razbirat' shablonnyye literaly s pomoshch'yu funktsii. Pervyy argument takoy funktsii soderzhit massiv strokovykh znacheniy, a ostal'nyye soderzhat vyrazheniya iz podstanovok. V itoge, funktsiya dolzhna vernut' sobrannuyu stroku (ili chto-libo sovsem inoye, kak budet pokazano daleye). Imya funktsii mozhet byt' lyubym.\r\nРазвернуть\r\n372/5000\r\nEine erweiterte Form von Vorlagenliteralen ist das Markieren von Vorlagen. Mit ihnen können Sie Vorlagenliterale mithilfe einer Funktion analysieren. Das erste Argument einer solchen Funktion enthält ein Array von Zeichenfolgenwerten, und der Rest enthält Ausdrücke aus Ersetzungen. Infolgedessen sollte die Funktion den zusammengestellten String zurückgeben (oder etwas völlig anderes, wie später gezeigt wird). Der Name der Funktion kann beliebig sein."
+    },
+    "order_5df3fc0ad89ad0.21585948": {
+        "status": "new",
+        "rus": "",
+        "eng": "",
+        "deu": "",
+        "fra": "",
+        "it": "",
+        "esp": ""
     }
 }

@@ -58,16 +58,18 @@
             "second_name": "Великий",
             "count_congestion": 1,
             "date_of_register": "2019-11-25 09:46:01",
-            "completed_work": 0,
+            "completed_work": 1,
             "group": "translator",
-            "translated": [],
+            "translated": [
+                "order_5df0f179248b15.67489347"
+            ],
             "language_proficiency": [
                 "rus",
                 "eng",
                 "esp"
             ],
             "during_translation": [
-                "order_5df0f179248b15.67489347"
+                "order_5df3fc0ad89ad0.21585948"
             ]
         },
         "kortana": {

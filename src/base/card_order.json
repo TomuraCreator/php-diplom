@@ -1,6 +1,6 @@
 {
     "order_5ddd7ca762d4e8.04269684": {
-        "status": "resolved",
+        "status": "undone",
         "translator": "oldemoros3d",
         "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
@@ -33,7 +33,7 @@
         "deadline": "2019-11-21"
     },
     "order_5ddd7cbd2d0728.62357554": {
-        "status": "new",
+        "status": "resolved",
         "translator": "oldemoros3d",
         "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
@@ -65,7 +65,7 @@
         "deadline": "2019-12-20"
     },
     "order_5df0f179248b15.67489347": {
-        "status": "resolved",
+        "status": "done",
         "translator": "patronum",
         "customer": "OOO Партнёр",
         "lang_origin_text": "rus",
@@ -73,5 +73,20 @@
             "deu"
         ],
         "deadline": "2019-12-21"
+    },
+    "order_5df3fc0ad89ad0.21585948": {
+        "status": "new",
+        "translator": "patronum",
+        "customer": "Петр Великий",
+        "lang_origin_text": "rus",
+        "lang_for_translate": [
+            "rus",
+            "eng",
+            "deu",
+            "fra",
+            "it",
+            "esp"
+        ],
+        "deadline": "2020-01-05"
     }
 }

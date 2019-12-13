@@ -197,7 +197,10 @@ class User
     }
 
     /**
-     * Удаляет информацию о заказе из карточки переводчика 
+     * Удаляет информацию о заказе из поля during_translation переводчика 
+     * @param string id пользователя
+     * @param string id карты
+     * 
      */
     static function deleteCardId(string $user_id, string $card_id) : void
     {

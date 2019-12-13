@@ -1,4 +1,7 @@
 <?php
+/**
+ * Перенаправляет пользователя
+*/
 class Router
 {
     private $post;
@@ -22,11 +25,14 @@ class Router
             $this->user = new User($POST);
             $this->toRegister();
             User::reloadStateUsersCategory();
+
         } elseif($this->get['name'] === 'login') { // логин
             $this->auth = new Auth($POST);
             $this->toAuthLogin();
+
         } elseif($this->get['name'] === 'loginout') { //разлогин
             $this->logOut();
+
         } elseif($this->get['name'] === 'new_order') { // создание новой карточки с текстом
             try {
                 $this->saveOrder();
@@ -35,16 +41,16 @@ class Router
             }
             User::reloadStatTranslator();
             header('Location: body.php');
+
         } elseif($this->get['name'] === 'edit_card') { // отправка переведённого текста переводчиком
             $this->saveCardText();
+
         } elseif($this->get['name'] === 'delete_card') { //удаление карточки 
             $this->removeCard();
             
+        } elseif($this->get['name'] === 'show_card') { // показ формы для подтверждения
+            $this->showCard();
         }
-    }
-    private function isError() 
-    {
-
     }
 
     /**
@@ -122,6 +128,28 @@ class Router
     {
         TextManipulate::deleteCardData($this->get['id']);
         User::reloadStatTranslator();
+        
+    }
+
+    /**
+     * Перенаправляет на главную, меняет статус на принят или отклонён
+     * @return void
+     */
+    private function showCard() : void
+    {
+        $post = $this->post;
+        if(!empty($post['confirm'])) {
+            $modernize_text = new TextManipulate($this->post);
+            $modernize_text->setStatusOnCard('done');
+            $param = $modernize_text->getParam('text_json');
+            $login = $param[$post['card_id']]['translator'];
+            User::writeIdToSuccessfulTranslate($login, $post['card_id']);
+            User::deleteCardId($login, $post['card_id']);
+
+        } elseif(!empty($post['rifiutare'])) {
+            $modernize_text = new TextManipulate($this->post);
+            $modernize_text->setStatusOnCard('undone');
+        }
         header('Location: body.php');
     }
 }   

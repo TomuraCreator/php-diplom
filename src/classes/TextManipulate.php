@@ -84,4 +84,16 @@ class TextManipulate
 
         User::deleteCardId($translator, $card_id);
     }
-}
+
+    /**
+     * Возвращает свойство объекта
+     * @param string имя свойства 
+     */
+    public function getParam(string $propName) 
+    {
+        $param = get_object_vars($this);
+        if(!empty($param[$propName])) {
+            return $param[$propName];
+        }
+    }
+}    

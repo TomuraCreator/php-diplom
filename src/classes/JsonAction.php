@@ -39,14 +39,24 @@ class JsonAction
     }
 
     /**
-     * Проверяет наличие файла в дирректории base
+     * Проверяет наличие файла в дирректории 
      * @param string имя файла
+     * @param string имя директории ( base, root )
      * @return bool
      */
-    private static function getFileNameDirectory(string $file_name) : bool
+    public static function getFileNameDirectory(string $file_name, $path = 'base') : bool
     {
         $file = $file_name . ".json";
-        $scan = scandir(self::$PATH);
+        $route = '';
+        switch($path) {
+            case 'root':
+                $route .= $_SERVER['DOCUMENT_ROOT'] . '/DIPLOM-PHP//';
+                break;
+            case 'base':
+                $route = $_SERVER['DOCUMENT_ROOT'] . '/DIPLOM-PHP/src/base/';
+                break;
+        }
+        $scan = scandir($route);
         
         foreach($scan as $value) {
             if($file === $value) {

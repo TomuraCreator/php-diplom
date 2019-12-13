@@ -80,6 +80,8 @@ $get_filter = (!empty($_GET['filter'])) ? $_GET['filter'] : 'all';
 if(!empty($_GET['name'])) {
     if($_GET['name'] == 'edit_card') {
         echo $textGenerate->getEditForm($_GET['id']);
+    } elseif($_GET['name'] == 'show_card') {
+        echo $textGenerate->getShowForm($_GET['id']);
     }
 }
 ?>
@@ -87,4 +89,3 @@ if(!empty($_GET['name'])) {
 </section>
 <script src="src/script/header.js">
 </script>
-<?php User::deleteCardId('oldemoros3d' , "order_5ddee19aa234d4.89131815");?>
