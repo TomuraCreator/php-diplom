@@ -1,12 +1,12 @@
 {
-    "count_translator": 3,
-    "count_managers": 0,
+    "count_translator": 5,
+    "count_managers": 2,
     "users": {
         "oldemoros3d": {
             "password": "$2y$10$dW4P3uyKwSttx/9q9tK9heX9r4ip.KIJygKupDGjax6jgGrThYdAi",
             "name": "Василий ",
             "second_name": "Крамер",
-            "count_congestion": 4,
+            "count_congestion": 2,
             "date_of_register": "2019-11-25 09:39:00",
             "completed_work": 0,
             "group": "translator",
@@ -17,8 +17,6 @@
             ],
             "during_translation": [
                 "order_5ddd7ca762d4e8.04269684",
-                "order_5ddd7caef2f049.78074748",
-                "order_5ddd7cb3ecb004.85893375",
                 "order_5ddd7cbd2d0728.62357554"
             ]
         },
@@ -43,9 +41,11 @@
             "second_name": "Пелевин",
             "count_congestion": 0,
             "date_of_register": "2019-11-25 09:43:25",
-            "completed_work": 0,
+            "completed_work": 1,
             "group": "translator",
-            "translated": [],
+            "translated": [
+                "order_5ddee19aa234d4.89131815"
+            ],
             "language_proficiency": [
                 "rus",
                 "eng"
@@ -56,7 +56,7 @@
             "password": "$2y$10$Po4ExUUKvYuyywl60BXxTOdTMYvRYVkmzFFr5UDph2N0l1sLepLkm",
             "name": "Петр",
             "second_name": "Великий",
-            "count_congestion": 1,
+            "count_congestion": 2,
             "date_of_register": "2019-11-25 09:46:01",
             "completed_work": 1,
             "group": "translator",
@@ -69,7 +69,8 @@
                 "esp"
             ],
             "during_translation": [
-                "order_5df3fc0ad89ad0.21585948"
+                "order_5ddd7caef2f049.78074748",
+                "order_5df680b72b0833.86910332"
             ]
         },
         "kortana": {
@@ -84,7 +85,7 @@
             "password": "$2y$10$142yZR.qAaZZTcfHxHuq3eBGRJrfXZTTVe7dz/4s7vlJfpMFfjrCe",
             "name": "Василий ",
             "second_name": "Виндоусова",
-            "count_congestion": 0,
+            "count_congestion": 2,
             "date_of_register": "2019-12-07 13:28:25",
             "completed_work": 0,
             "group": "translator",
@@ -93,7 +94,10 @@
                 "rus",
                 "eng"
             ],
-            "during_translation": []
+            "during_translation": [
+                "order_5df5e10c87d355.70396294",
+                "order_5ddd7cb3ecb004.85893375"
+            ]
         },
         "retrologin": {
             "password": "$2y$10$rZ0FCPe1qB.mIHjxibIyY.exWcFjksZDlv6ig0k0MyTbVM3qQBspu",

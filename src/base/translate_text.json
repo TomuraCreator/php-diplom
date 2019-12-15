@@ -11,8 +11,8 @@
     },
     "order_5ddd7cb3ecb004.85893375": {
         "status": "new",
-        "fra": "",
-        "it": ""
+        "rus": "",
+        "eng": ""
     },
     "order_5ddd7cbd2d0728.62357554": {
         "status": "resolved",
@@ -20,25 +20,22 @@
         "it": "Compagni! l'ulteriore sviluppo di varie forme di attività ci consente di valutare il valore corrispondente alle condizioni di attivazione. Pertanto, la costante crescita quantitativa e la portata della nostra attività determinano in larga misura la creazione delle posizioni assunte dai partecipanti in relazione ai compiti stabiliti. D'altro canto, l'inizio del lavoro quotidiano sulla formazione di una posizione assicura un ampio cerchio di partecipazione (specialistica) alla formazione di nuovi sviluppi"
     },
     "order_5ddee19aa234d4.89131815": {
-        "status": "new",
-        "fra": "",
-        "it": ""
-    },
-    "order_5deeb476937606.12759201": {
-        "status": "new",
-        "eng": ""
+        "status": "done",
+        "rus": "Товарищи! дальнейшее развитие различных форм деятельности позволяет оценить значение соответствующий условий активизации. Таким образом постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. С другой стороны начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании новых предложений.",
+        "eng": "Comrades! further development of various forms of activity allows us to evaluate the value corresponding to the conditions of activation. Thus, the constant quantitative growth and the scope of our activity to a large extent determines the creation of positions held by the participants in relation to the tasks set. On the other hand, the beginning of daily work on the formation of a position ensures a wide circle of (specialists) participation in the formation of new proposals.\r\n"
     },
     "order_5df0f179248b15.67489347": {
         "status": "done",
         "deu": "\r\nRasshirennoy formoy shablonnykh literalov yavlyayutsya tegovyye shablony. Oni pozvolyayut razbirat' shablonnyye literaly s pomoshch'yu funktsii. Pervyy argument takoy funktsii soderzhit massiv strokovykh znacheniy, a ostal'nyye soderzhat vyrazheniya iz podstanovok. V itoge, funktsiya dolzhna vernut' sobrannuyu stroku (ili chto-libo sovsem inoye, kak budet pokazano daleye). Imya funktsii mozhet byt' lyubym.\r\nРазвернуть\r\n372/5000\r\nEine erweiterte Form von Vorlagenliteralen ist das Markieren von Vorlagen. Mit ihnen können Sie Vorlagenliterale mithilfe einer Funktion analysieren. Das erste Argument einer solchen Funktion enthält ein Array von Zeichenfolgenwerten, und der Rest enthält Ausdrücke aus Ersetzungen. Infolgedessen sollte die Funktion den zusammengestellten String zurückgeben (oder etwas völlig anderes, wie später gezeigt wird). Der Name der Funktion kann beliebig sein."
     },
-    "order_5df3fc0ad89ad0.21585948": {
+    "order_5df5e10c87d355.70396294": {
         "status": "new",
         "rus": "",
-        "eng": "",
-        "deu": "",
-        "fra": "",
-        "it": "",
-        "esp": ""
+        "eng": ""
+    },
+    "order_5df680b72b0833.86910332": {
+        "status": "new",
+        "rus": "",
+        "eng": ""
     }
 }

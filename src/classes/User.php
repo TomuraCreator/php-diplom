@@ -160,7 +160,6 @@ class User
 
     /**
      * Обновить счётчики загружености переводчиков
-     * 
      */
     static function reloadStatTranslator() : void
     {
@@ -200,7 +199,7 @@ class User
      * Удаляет информацию о заказе из поля during_translation переводчика 
      * @param string id пользователя
      * @param string id карты
-     * 
+     * @return void
      */
     static function deleteCardId(string $user_id, string $card_id) : void
     {

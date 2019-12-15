@@ -57,17 +57,19 @@ class TextGenerate
             $strimwidth = mb_strimwidth($only_text_json[$val]['text'], 0, 300, "...", mb_internal_encoding());
             $hrefEdit = 'body.php?name=edit_card&id=' . $val;
             $hrefDelete = $adress_to_route . '?name=delete_card&id=' . $val;
+            $hrefManagerEditCard = 'body.php?name=manager_edit_card&id=' . $val;
+
             $hrefShow = 'body.php?name=show_card&id=' . $val;
             $stringOflang = join($value['lang_for_translate'], ' ');
             $statusText = $only_text_json[$val]['status'];
 
             $deleteText = <<<DOC
-                <a class="button_delete_quest" href="$hrefDelete" title="удалить">
+                <a class="button_delete_quest" href="$hrefDelete" title="удалить задание">
                     <img src="src/image/174-bin2.png" alt="удалить">
                 </a>
 DOC;
             $editText = <<<DOC
-            <a class="button_edit" href="$hrefEdit" title="редактировать">
+            <a class="button_edit" href="$hrefEdit" title="ввести перевод">
                 <img src="src/image/006-pencil.png" alt="редактировать" >
             </a>
 DOC;
@@ -76,8 +78,13 @@ DOC;
                 <img src="src/image/207-eye.png" alt="просмотреть" >
             </a>
 DOC;
+            $managerEditCard = <<<DOC
+            <a class="button_edit" href="$hrefManagerEditCard" title="редактировать задание">
+                <img src="src/image/009-pen.png" alt="просмотреть" >
+            </a>
+DOC;
             $deleteButtonVisible = ($this->isTranslator) ? $modal_show_card : $deleteText . $modal_show_card;
-            $editButtonVisible = ($this->isTranslator) ? $editText : '';
+            $editButtonVisible = ($this->isTranslator) ? $editText : $managerEditCard;
 
 
             if($value['status'] === $status):
@@ -266,6 +273,98 @@ DOC;
             </div>
 DOC;
         }
+    }
+
+    /**
+     * генерирует форму формирования нового задания или форму редактирования
+     * если есть номер карточки генерирут форму редактирования
+     * @param string $card_id в случае редактирования id карточки
+     * @return string 
+     */
+    public function getNewTaskForm( string $card_id = null) : string
+    {
+        $adress_to_route = '';
+        $user_point = $this->generateUserPoint();
+        $orig_text = '';
+        $customer = '';
+        $date_of_deadline = '';
+
+        if($card_id) {
+            $text_json = $this->text_json;
+            $only_text_json = $this->only_text_json;
+            $adress_to_route = 'redirection.php?name=change_order&id=' . $card_id;
+            $orig_text = $only_text_json[$card_id]['text'];
+            $customer = $text_json[$card_id]['customer'];
+            $date_of_deadline = $text_json[$card_id]['deadline'];
+        } else {
+            $adress_to_route = 'redirection.php?name=new_order';
+        }
+        return <<<DOC
+        <div class="wrapper_form_create">
+            <form action="$adress_to_route" method="POST" class="create_order_form">
+                <div class="wrapper_personality_or_client">
+                    <div class="text_window order_person">
+                        <p>Исполнитель:</p>
+                        <select name="selected_translator" class="selected_translator">
+                            $user_point
+                        </select>
+                    </div>
+                    <div class="text_window translate_person">
+                        <p>Заказчик:</p>
+                        <input type="text" name="customer" value="{$customer}" required>
+                    </div>
+                </div>
+                <div class="wrapper_checkbox_origin">
+                    <fieldset class="origin_text">
+                        <legend> Язык оригинала: </legend>
+                        <input type="radio" name="origin" value="rus" id="o_rus" >
+                        <label for="o_rus">Русский</label>
+                        <input type="radio" name="origin" value="eng" id="o_eng">
+                        <label for="o_eng">Английский</label> 
+                        <input type="radio" name="origin" value="deu" id="o_deu" checked>
+                        <label for="o_deu">Немецкий</label>
+                        <input type="radio" name="origin" value="fra" id="o_fra">
+                        <label for="o_fra">Французский</label>
+                        <input type="radio" name="origin" value="it" id="o_it">
+                        <label for="o_it">Итальянский</label>
+                        <input type="radio" name="origin" value="esp" id="o_esp">
+                        <label for="o_esp">Испанский</label>
+                    </fieldset>
+                </div>
+                <div class="wrapper_checkbox_translate">
+                    <fieldset class="translate_text">
+                        <legend>Язык перевода: </legend>
+                        <input type="checkbox" name="translate[]" value="rus" id="rus" checked>
+                        <label for="rus">Русский</label>
+                        <input type="checkbox" name="translate[]" value="eng" id="eng" checked>
+                        <label for="eng">Английский</label>
+                        <input type="checkbox" name="translate[]" value="deu" id="deu">
+                        <label for="deu">Немецкий</label>
+                        <input type="checkbox" name="translate[]" value="fra" id="fra">
+                        <label for="fra">Французский</label>
+                        <input type="checkbox" name="translate[]" value="it" id="it">
+                        <label for="it">Итальянский</label>
+                        <input type="checkbox" name="translate[]" value="esp" id="esp">
+                        <label for="esp">Испанский</label>
+                    </fieldset>    
+                </div>
+                <textarea name="text_to_translate" cols="30" rows="10" class="text_to_translate" required>
+                    {$orig_text}
+                </textarea>
+                <div class="wrapper_submit">
+                    <div class="wrapper_button_forms">
+                        <input type="submit" value="Опубликовать">
+                        <input type="button" value="Закрыть" class="close">
+                    </div>
+                    <div class="wrapper_deadline">
+                        <p>Завершить до: </p>
+                        <input type="date" name="date_of_deadline" value="$date_of_deadline" required>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+DOC;
     }
     /**
      * Переводит сокращения языков в полный вид

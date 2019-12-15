@@ -12,7 +12,7 @@
     },
     "order_5ddd7caef2f049.78074748": {
         "status": "new",
-        "translator": "oldemoros3d",
+        "translator": "patronum",
         "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
         "lang_for_translate": [
@@ -23,12 +23,12 @@
     },
     "order_5ddd7cb3ecb004.85893375": {
         "status": "new",
-        "translator": "oldemoros3d",
+        "translator": "locatorSinc",
         "customer": "OOO Партнёр",
-        "lang_origin_text": "deu",
+        "lang_origin_text": "rus",
         "lang_for_translate": [
-            "fra",
-            "it"
+            "rus",
+            "eng"
         ],
         "deadline": "2019-11-21"
     },
@@ -44,25 +44,15 @@
         "deadline": "2019-11-21"
     },
     "order_5ddee19aa234d4.89131815": {
-        "status": "new",
-        "translator": "oldemoros3d",
+        "status": "done",
+        "translator": "kolovratec",
         "customer": "OOO Партнёр",
         "lang_origin_text": "deu",
         "lang_for_translate": [
-            "fra",
-            "it"
-        ],
-        "deadline": "2019-11-21"
-    },
-    "order_5deeb476937606.12759201": {
-        "status": "new",
-        "translator": "patronum",
-        "customer": "net",
-        "lang_origin_text": "rus",
-        "lang_for_translate": [
+            "rus",
             "eng"
         ],
-        "deadline": "2019-12-20"
+        "deadline": "2019-11-21"
     },
     "order_5df0f179248b15.67489347": {
         "status": "done",
@@ -74,19 +64,26 @@
         ],
         "deadline": "2019-12-21"
     },
-    "order_5df3fc0ad89ad0.21585948": {
+    "order_5df5e10c87d355.70396294": {
         "status": "new",
-        "translator": "patronum",
-        "customer": "Петр Великий",
+        "translator": "locatorSinc",
+        "customer": "Рафаэль",
         "lang_origin_text": "rus",
         "lang_for_translate": [
             "rus",
-            "eng",
-            "deu",
-            "fra",
-            "it",
-            "esp"
+            "eng"
         ],
-        "deadline": "2020-01-05"
+        "deadline": "2019-12-29"
+    },
+    "order_5df680b72b0833.86910332": {
+        "status": "new",
+        "translator": "patronum",
+        "customer": "Netology",
+        "lang_origin_text": "rus",
+        "lang_for_translate": [
+            "rus",
+            "eng"
+        ],
+        "deadline": "2019-12-22"
     }
 }

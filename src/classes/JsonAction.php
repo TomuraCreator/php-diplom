@@ -6,9 +6,6 @@
  */
 class JsonAction 
 {
-    private static $PATH =  'C:\wamp64\www\DIPLOM-PHP\src\base\\';
-
-    
     /**
      * читает JSON файл $file_name и возращает данные
      * @param string имя файла // 'users' по умолчанию
@@ -16,14 +13,13 @@ class JsonAction
      */
     public static function readJSON(string $file_name = 'users') 
     {
-        $path_name = self::$PATH . $file_name . '.json';
+        $path_name = $_SERVER['DOCUMENT_ROOT'] . '/src/base/' . $file_name . '.json';
         if(self::getFileNameDirectory($file_name)) {
             if(file_get_contents($path_name)) {
                 $convert_json = file_get_contents($path_name);
                 $decode = JsonAction::getJsonDecode($convert_json);
                 return $decode;
             }
-
         }   
     }
 
@@ -44,18 +40,18 @@ class JsonAction
      * @param string имя директории ( base, root )
      * @return bool
      */
-    public static function getFileNameDirectory(string $file_name, $path = 'base') : bool
+    public static function getFileNameDirectory(string $file_name) : bool
     {
         $file = $file_name . ".json";
-        $route = '';
-        switch($path) {
-            case 'root':
-                $route .= $_SERVER['DOCUMENT_ROOT'] . '/DIPLOM-PHP//';
-                break;
-            case 'base':
-                $route = $_SERVER['DOCUMENT_ROOT'] . '/DIPLOM-PHP/src/base/';
-                break;
-        }
+        $route = $_SERVER['DOCUMENT_ROOT'] . '/src/base/';
+        // switch($path) {
+        //     case 'root':
+        //         $route = $_SERVER['DOCUMENT_ROOT'] . '/';
+        //         break;
+        //     case 'base':
+        //         $route = $_SERVER['DOCUMENT_ROOT'] . '/src/base/';
+        //         break;
+        // }
         $scan = scandir($route);
         
         foreach($scan as $value) {
@@ -63,30 +59,7 @@ class JsonAction
                 return true;
             }
         }
-        return true;
-    }
-
-    /**
-     * Устанавливает путь к базе данных 
-     * @param string путь
-     * @return bool
-     */
-    public static function setPathConstant(string $path) : bool
-    {
-        if(!empty($path)) {
-            self::$PATH = $path;
-            return true;
-        } else {
-            return false;
-        }
-    }
-    /**
-     * Возвращает свойство PATH
-     * @return string
-     */
-    public static function getPath() : string 
-    {
-        return self::$PATH;
+        return false;
     }
 
     /**
@@ -97,7 +70,7 @@ class JsonAction
      */
     public static function setJsonFile( $data, string $file_name = 'users') : bool
     {
-        $path_name = self::$PATH . $file_name . '.json';
+        $path_name = $_SERVER['DOCUMENT_ROOT'] . '/src/base/'. $file_name . '.json';
         if(!empty($data) && self::getFileNameDirectory($file_name)) {
             $encode = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
             file_put_contents($path_name, $encode);

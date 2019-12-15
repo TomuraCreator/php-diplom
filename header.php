@@ -76,12 +76,11 @@ $image = null;
                 </li>
                 <?php if($session['group'] == 'customer'): ?>
                     <li class="new_item filter-item ">
-                        <a href="">Новое задание</a>
+                        <a href="<?php echo $adres . '?name=make_new_task' ?>">Новое задание</a>
                     </li>
                 <?php endif;?>
             </ul>
         </div>
     </div>
-
 </body>
 </html>

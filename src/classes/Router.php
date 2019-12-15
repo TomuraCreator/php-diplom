@@ -34,11 +34,7 @@ class Router
             $this->logOut();
 
         } elseif($this->get['name'] === 'new_order') { // создание новой карточки с текстом
-            try {
-                $this->saveOrder();
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
+            $this->saveOrder();
             User::reloadStatTranslator();
             header('Location: body.php');
 
@@ -50,6 +46,9 @@ class Router
             
         } elseif($this->get['name'] === 'show_card') { // показ формы для подтверждения
             $this->showCard();
+        } elseif($this->get['name'] === 'change_order') { // показ формы редактирования
+            $this->saveChangesBeforeEdit();
+
         }
     }
 
@@ -93,7 +92,9 @@ class Router
      */
     private function saveOrder() : void
     {
-        new Order($this->post);
+
+        $order = new Order($this->post);
+        $order->setTextComplete();
     }
 
     /**
@@ -103,7 +104,6 @@ class Router
     private function logOut() : void
     {
         session_destroy();
-        session_gc();
         header("Location: index.php");
         exit;
     }
@@ -128,7 +128,7 @@ class Router
     {
         TextManipulate::deleteCardData($this->get['id']);
         User::reloadStatTranslator();
-        
+        header('Location: body.php');
     }
 
     /**
@@ -150,6 +150,17 @@ class Router
             $modernize_text = new TextManipulate($this->post);
             $modernize_text->setStatusOnCard('undone');
         }
+        header('Location: body.php');
+    }
+
+    /**
+     * Сохраняет изменения внесённые в задачу менеджером после исправлений
+     * @return void
+     */
+    private function saveChangesBeforeEdit() : void
+    {
+        $order = new Order($this->post);
+        $order->setTextComplete($this->get['id']);
         header('Location: body.php');
     }
 }   
